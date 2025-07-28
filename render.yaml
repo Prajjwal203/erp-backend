@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: erp-backend
+    runtime: dotnet
+    repo: https://github.com/your-username/erp-backend
+    branch: main
+    buildCommand: "dotnet restore && dotnet build -c Release"
+    startCommand: "dotnet bin/Release/net7.0/erp-backend.dll"
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: ConnectionStrings__Default
+        sync: false  # You’ll manually set this in the Render dashboard
